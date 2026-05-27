@@ -1,0 +1,61 @@
+SSH(PowerShell) 접속 후:
+
+```bash
+sudo apt update
+sudo apt upgrade -y
+```
+
+필수 패키지 설치
+
+```bash
+sudo apt install \
+python3 \
+python3-pip \
+python3-venv \
+sqlite3 \
+libffi-dev \
+libssl-dev \
+autoconf \
+build-essential \
+libopenjp2-7 \
+libtiff6 \
+libturbojpeg0-dev \
+tzdata -y
+```
+
+Home Assistant 사용자 생성
+
+```bash
+sudo useradd -rm homeassistant
+```
+
+설치 폴더 생성
+
+```bash
+sudo mkdir /srv/homeassistant
+sudo chown homeassistant:homeassistant /srv/homeassistant
+```
+
+Home Assistant 설치
+
+```bash
+sudo -u homeassistant -H -s
+```
+
+```bash
+cd /srv/homeassistant
+
+python3 -m venv .
+
+source bin/activate
+
+pip install wheel
+
+pip install homeassistant
+```
+
+실행
+
+```bash
+hass
+```
